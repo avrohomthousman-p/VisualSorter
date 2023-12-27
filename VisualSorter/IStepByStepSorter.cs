@@ -14,9 +14,19 @@ namespace VisualSorter
 
         /// <summary>
         /// Resets the data so it can be sorted again.
+        /// 
+        /// The number of elements being sorted does not change.
+        /// </summary>
+        public void Reset();
+
+
+
+        /// <summary>
+        /// Resets the data so it can be sorted again. The number of elements being sorted
+        /// will be set to the specified size.
         /// </summary>
         /// <param name="size">the number of elements that should be sorted</param>
-        public void Reset(int size = 10);
+        public void Reset(int size);
 
 
 
@@ -32,7 +42,7 @@ namespace VisualSorter
         /// Sets the array that will be sorted.
         /// </summary>
         /// <param name="data">the array that will be sorted</param>
-        public void SetData(int[] data);
+        public void SetData(int[] dataToUse);
 
 
 

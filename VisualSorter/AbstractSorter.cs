@@ -84,7 +84,11 @@ namespace VisualSorter
 
 
 
-        public abstract void Reset(int size = 10);
+        public abstract void Reset();
+
+
+
+        public abstract void Reset(int size);
 
 
 
