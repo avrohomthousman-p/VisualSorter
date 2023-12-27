@@ -84,11 +84,24 @@ namespace VisualSorter
 
 
 
-        public abstract void Reset();
+        public void Reset()
+        {
+            FillArray();
+        }
 
 
 
-        public abstract void Reset(int size);
+        public void Reset(int size)
+        {
+            if (size <= 0)
+            {
+                throw new ArgumentOutOfRangeException("Initial size must be greater than zero.");
+            }
+
+
+            data = new int[size];
+            FillArray();
+        }
 
 
 
