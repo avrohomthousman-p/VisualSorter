@@ -27,6 +27,12 @@ namespace VisualSorter
 
         public AbstractSorter(int size)
         {
+            if(size <= 0)
+            {
+                throw new ArgumentOutOfRangeException("Initial size must be greater than zero.");
+            }
+
+
             data = new int[size];
             FillArray();
         }
@@ -35,8 +41,9 @@ namespace VisualSorter
 
         public AbstractSorter(int[] dataToSort)
         {
-            data = new int[dataToSort.Length];
-            Array.Copy(dataToSort, data, dataToSort.Length);
+            this.data = new int[dataToSort.Length];
+
+            this.SetData(dataToSort);
         }
 
 
@@ -54,11 +61,26 @@ namespace VisualSorter
 
 
 
-        public abstract int[] GetData();
+        public int[] GetData()
+        {
+            int[] deepCopy = new int[data.Length];
+
+            Array.Copy(data, deepCopy, data.Length);
+
+            return deepCopy;
+        }
 
 
 
-        public abstract int GetDataAt(int index);
+        public int GetDataAt(int index)
+        {
+            if(index < 0 || index >= data.Length)
+            {
+                throw new IndexOutOfRangeException($"index {index} out of range for array of length {data.Length}.");
+            }
+
+            return data[index];
+        }
 
 
 
@@ -66,7 +88,15 @@ namespace VisualSorter
 
 
 
-        public abstract void SetData(int[] data);
+        public void SetData(int[] dataToSort)
+        {
+            if(dataToSort.Length != this.data.Length)
+            {
+                this.data = new int[dataToSort.Length];
+            }
+            
+            Array.Copy(dataToSort, this.data, dataToSort.Length);
+        }
 
 
 
