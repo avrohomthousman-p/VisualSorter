@@ -13,6 +13,30 @@ namespace VisualSorter
     {
 
         /// <summary>
+        /// Resets the data so it can be sorted again.
+        /// </summary>
+        public void Reset();
+
+
+
+        /// <summary>
+        /// Gets the full array that is being sorted.
+        /// </summary>
+        /// <returns></returns>
+        public int[] GetData();
+
+
+
+        /// <summary>
+        /// Gets the data from a specific index of the array being sorted.
+        /// </summary>
+        /// <param name="index">the position of the data needed</param>
+        /// <returns>the data at the position specified</returns>
+        public int GetDataAt(int index);
+
+
+
+        /// <summary>
         /// Executes the sort
         /// </summary>
         /// <returns>the two indexes that are swapped at each step of the sort</returns>
