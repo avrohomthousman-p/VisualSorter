@@ -14,7 +14,7 @@ namespace VisualSorter.SortingLogic
     {
         protected static Random generator = new Random();
         protected static readonly int DEFAULT_SIZE = 10;
-        private int[] data;
+        protected int[] data;
 
 
         public AbstractSorter()
