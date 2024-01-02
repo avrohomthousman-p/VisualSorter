@@ -108,7 +108,7 @@
             DataPanel.BackColor = SystemColors.ButtonFace;
             DataPanel.Location = new Point(12, 12);
             DataPanel.Name = "DataPanel";
-            DataPanel.Size = new Size(568, 287);
+            DataPanel.Size = new Size(568, 242);
             DataPanel.TabIndex = 6;
             DataPanel.TabStop = false;
             // 
@@ -116,7 +116,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(790, 325);
+            ClientSize = new Size(790, 282);
             Controls.Add(DataPanel);
             Controls.Add(SortBtn);
             Controls.Add(SelectionSort);

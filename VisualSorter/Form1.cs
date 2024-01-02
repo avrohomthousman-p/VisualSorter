@@ -5,7 +5,7 @@ namespace VisualSorter
 {
     public partial class MainWindow : Form
     {
-        private static readonly int DATA_SIZE = 12; //how many numbers will be sorted
+        private static readonly int DATA_SIZE = 15; //how many numbers will be sorted
 
         private static readonly int BAR_WIDTH = 20;
         private static readonly int GAP_BETWEEN_BARS = 20;
@@ -36,15 +36,20 @@ namespace VisualSorter
 
 
         private void DataPanel_Paint(object sender, PaintEventArgs e)
-        { 
+        {
             Graphics g = e.Graphics;
             int x = 10;
 
+            int TextHeight = 15;
+
             for (int i = 0; i < DATA_SIZE; i++)
             {
-                int barHeight = sortBeingUsed.GetDataAt(i);
-                Rectangle rect = new Rectangle(x, DataPanel.Height - barHeight, BAR_WIDTH, barHeight);
+                int barHeight = sortBeingUsed.GetDataAt(i) * 2;
+                Rectangle rect = new Rectangle(x, DataPanel.Height - barHeight - TextHeight, BAR_WIDTH, barHeight);
                 g.FillRectangle(Brushes.Blue, rect);
+
+                g.DrawString(sortBeingUsed.GetDataAt(i).ToString(), Font, Brushes.Black, new PointF(x, DataPanel.Height - TextHeight));
+
                 x += BAR_WIDTH + GAP_BETWEEN_BARS;
             }
         }
