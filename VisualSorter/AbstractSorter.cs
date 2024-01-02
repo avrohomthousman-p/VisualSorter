@@ -99,7 +99,10 @@ namespace VisualSorter
             }
 
 
-            data = new int[size];
+            if(data.Length != size)
+            {
+                data = new int[size];
+            }
             FillArray();
         }
 
