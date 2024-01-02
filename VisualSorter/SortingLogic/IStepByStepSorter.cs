@@ -69,5 +69,19 @@ namespace VisualSorter.SortingLogic
         /// <returns>the two indexes that are swapped at each step of the sort</returns>
         public IEnumerable<Tuple<int, int>> Sort();
 
+
+
+        /// <summary>
+        /// Swaps the position of two elements in an array
+        /// </summary>
+        /// <param name="data">the array</param>
+        /// <param name="index1">the first index</param>
+        /// <param name="index2">the second index</param>
+        public static void Swap(int[] data, int index1, int index2)
+        {
+            int temp = data[index1];
+            data[index1] = data[index2];
+            data[index2] = temp;
+        }
     }
 }
