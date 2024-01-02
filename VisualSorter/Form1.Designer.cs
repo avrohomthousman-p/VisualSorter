@@ -1,6 +1,6 @@
 ﻿namespace VisualSorter
 {
-    partial class Form1
+    partial class MainWindow
     {
         /// <summary>
         ///  Required designer variable.
@@ -33,6 +33,9 @@
             ShellSort = new RadioButton();
             InsertionSort = new RadioButton();
             SelectionSort = new RadioButton();
+            SortBtn = new Button();
+            DataPanel = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)DataPanel).BeginInit();
             SuspendLayout();
             // 
             // BubbleSort
@@ -91,18 +94,39 @@
             SelectionSort.Text = "Selection Sort";
             SelectionSort.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // SortBtn
+            // 
+            SortBtn.Location = new Point(636, 211);
+            SortBtn.Name = "SortBtn";
+            SortBtn.Size = new Size(75, 23);
+            SortBtn.TabIndex = 5;
+            SortBtn.Text = "Sort";
+            SortBtn.UseVisualStyleBackColor = true;
+            // 
+            // DataPanel
+            // 
+            DataPanel.BackColor = SystemColors.ButtonFace;
+            DataPanel.Location = new Point(12, 12);
+            DataPanel.Name = "DataPanel";
+            DataPanel.Size = new Size(568, 287);
+            DataPanel.TabIndex = 6;
+            DataPanel.TabStop = false;
+            // 
+            // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(790, 325);
+            Controls.Add(DataPanel);
+            Controls.Add(SortBtn);
             Controls.Add(SelectionSort);
             Controls.Add(InsertionSort);
             Controls.Add(ShellSort);
             Controls.Add(QuickSort);
             Controls.Add(BubbleSort);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "MainWindow";
+            Text = "Sorting Display";
+            ((System.ComponentModel.ISupportInitialize)DataPanel).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -114,5 +138,7 @@
         private RadioButton ShellSort;
         private RadioButton InsertionSort;
         private RadioButton SelectionSort;
+        private Button SortBtn;
+        private PictureBox DataPanel;
     }
 }
