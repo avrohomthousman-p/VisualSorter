@@ -33,8 +33,16 @@ namespace VisualSorter
         /// <summary>
         /// Gets the full array that is being sorted.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>a deep copy of the data being sorted</returns>
         public int[] GetData();
+
+
+
+        /// <summary>
+        /// Gets the number of elements being sorted
+        /// </summary>
+        /// <returns>the number of elements being sorted</returns>
+        public int DataSize();
 
 
 

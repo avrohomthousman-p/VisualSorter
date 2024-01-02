@@ -61,6 +61,13 @@ namespace VisualSorter
 
 
 
+        public int DataSize()
+        {
+            return data.Length;
+        }
+
+
+
         public int[] GetData()
         {
             int[] deepCopy = new int[data.Length];
