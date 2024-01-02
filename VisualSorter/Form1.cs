@@ -1,11 +1,12 @@
 using System.Windows.Forms;
+using VisualSorter.SortingLogic;
 using static System.Windows.Forms.AxHost;
 
 namespace VisualSorter
 {
     public partial class MainWindow : Form
     {
-        private static readonly int DATA_SIZE = 15; //how many numbers will be sorted
+        private static readonly int DATA_SIZE = 14; //how many numbers will be sorted
 
         private static readonly int BAR_WIDTH = 20;
         private static readonly int GAP_BETWEEN_BARS = 20;
@@ -51,6 +52,36 @@ namespace VisualSorter
                 g.DrawString(sortBeingUsed.GetDataAt(i).ToString(), Font, Brushes.Black, new PointF(x, DataPanel.Height - TextHeight));
 
                 x += BAR_WIDTH + GAP_BETWEEN_BARS;
+            }
+        }
+
+
+
+        /// <summary>
+        /// Instantiates a sorting algorithm based on the selected radio buttons.
+        /// </summary>
+        private void ChooseSortingAlgorithm()
+        {
+            //TODO: complete this function
+            if (this.BubbleSort.Checked)
+            {
+
+            }
+            else if (this.QuickSort.Checked)
+            {
+
+            }
+            else if (this.ShellSort.Checked)
+            {
+
+            }
+            else if (this.InsertionSort.Checked)
+            {
+
+            }
+            else if (this.SelectionSort.Checked)
+            {
+
             }
         }
 
