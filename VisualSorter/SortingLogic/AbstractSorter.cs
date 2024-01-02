@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VisualSorter
+namespace VisualSorter.SortingLogic
 {
     /// <summary>
     /// Implementation of all methods in the IStepByStepSorter interface other than the actual sorting method.
@@ -27,7 +27,7 @@ namespace VisualSorter
 
         public AbstractSorter(int size)
         {
-            if(size <= 0)
+            if (size <= 0)
             {
                 throw new ArgumentOutOfRangeException("Initial size must be greater than zero.");
             }
@@ -41,9 +41,9 @@ namespace VisualSorter
 
         public AbstractSorter(int[] dataToSort)
         {
-            this.data = new int[dataToSort.Length];
+            data = new int[dataToSort.Length];
 
-            this.SetData(dataToSort);
+            SetData(dataToSort);
         }
 
 
@@ -53,7 +53,7 @@ namespace VisualSorter
         /// </summary>
         protected void FillArray()
         {
-            for(int i = 0; i < data.Length; i++)
+            for (int i = 0; i < data.Length; i++)
             {
                 data[i] = generator.Next(1, 100);
             }
@@ -81,7 +81,7 @@ namespace VisualSorter
 
         public int GetDataAt(int index)
         {
-            if(index < 0 || index >= data.Length)
+            if (index < 0 || index >= data.Length)
             {
                 throw new IndexOutOfRangeException($"index {index} out of range for array of length {data.Length}.");
             }
@@ -106,7 +106,7 @@ namespace VisualSorter
             }
 
 
-            if(data.Length != size)
+            if (data.Length != size)
             {
                 data = new int[size];
             }
@@ -117,12 +117,12 @@ namespace VisualSorter
 
         public void SetData(int[] dataToSort)
         {
-            if(dataToSort.Length != this.data.Length)
+            if (dataToSort.Length != data.Length)
             {
-                this.data = new int[dataToSort.Length];
+                data = new int[dataToSort.Length];
             }
-            
-            Array.Copy(dataToSort, this.data, dataToSort.Length);
+
+            Array.Copy(dataToSort, data, dataToSort.Length);
         }
 
 

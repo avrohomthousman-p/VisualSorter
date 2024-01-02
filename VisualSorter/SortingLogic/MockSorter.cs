@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VisualSorter
+namespace VisualSorter.SortingLogic
 {
     /// <summary>
     /// Implementation of the Abstract sorter that doesnt actually sort anything, it just sets up

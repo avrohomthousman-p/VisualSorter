@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VisualSorter
+namespace VisualSorter.SortingLogic
 {
     /// <summary>
     /// Sorts an array of integers one step at a time, returning each swap as it is done.
