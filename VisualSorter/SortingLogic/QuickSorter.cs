@@ -51,7 +51,7 @@ namespace VisualSorter.SortingLogic
 
 
             //Choose a pivot
-            int pivotIndex = ChoosePivot(start, end);
+            int pivotIndex = ChoosePivot(end);
             int pivotValue = data[pivotIndex];
 
             //Move the pivot to the end
@@ -95,12 +95,14 @@ namespace VisualSorter.SortingLogic
 
 
         /// <summary>
-        /// Chooses a good pivot to be used when partioning this part of the array
+        /// Chooses a good pivot to be used when partioning this part of the array.
+        /// 
+        /// Note: this function will not work if the area being sorted contains fewer than
+        /// 3 elements.
         /// </summary>
-        /// <param name="start">the start index of the area being sorted</param>
         /// <param name="end">the end index of the area being sorted</param>
         /// <returns>a good pivot to use</returns>
-        private int ChoosePivot(int start, int end)
+        private int ChoosePivot(int end)
         {
             int first = data[end];
             int second = data[end - 1];
