@@ -18,19 +18,8 @@ namespace VisualSorter
         public MainWindow()
         {
             InitializeComponent();
-            InitializeDataAndBars();
-        }
 
-
-
-        /// <summary>
-        /// Initilization/Resets the numbers to be sorted and draws the bars on the GUI.
-        /// </summary>
-        private void InitializeDataAndBars()
-        {
             sortBeingUsed.Reset(DATA_SIZE);
-
-            DataPanel.Paint += DataPanel_Paint;
         }
 
 
@@ -57,32 +46,83 @@ namespace VisualSorter
 
 
 
+
         /// <summary>
         /// Instantiates a sorting algorithm based on the selected radio buttons.
         /// </summary>
-        private void ChooseSortingAlgorithm()
+        /// <returns>an instance of the sorting algorithm that was selected by the user</returns>
+        /// <exception cref="Exception">if non of the radio buttons were selected</exception>
+        private IStepByStepSorter ChooseSortingAlgorithm()
         {
-            //TODO: complete this function
             if (this.BubbleSort.Checked)
             {
-
+                return new BubbleSorter(DATA_SIZE);
             }
             else if (this.QuickSort.Checked)
             {
-
+                return new QuickSorter(DATA_SIZE);
             }
             else if (this.ShellSort.Checked)
             {
-
+                return new ShellSorter(DATA_SIZE);
             }
             else if (this.InsertionSort.Checked)
             {
-
+                return new InsertionSorter(DATA_SIZE);
             }
             else if (this.SelectionSort.Checked)
             {
-
+                return new SelectionSorter(DATA_SIZE);
             }
+            else
+            {
+                throw new Exception("None of the radio buttons were selected");
+            }
+        }
+
+
+
+        private void SortBtn_Click(object sender, EventArgs e)
+        {
+            this.SortBtn.Enabled = false;
+
+
+            
+            //Setup the selected sorting algorithm
+            var newSorter = ChooseSortingAlgorithm();
+            if (this.sortBeingUsed.GetType() != newSorter.GetType()) //if we are not using the right algo
+            {
+                //switch to the new algorithim
+                this.sortBeingUsed.SetData(newSorter.GetData());
+                this.sortBeingUsed = newSorter;
+            }
+
+
+
+
+            //Start the sorting on another thread
+            Thread t = new Thread(() => {
+                var swaps = this.sortBeingUsed.Sort();
+
+                foreach(Tuple<int, int> unused in swaps)
+                {
+                    DataPanel.Invalidate();
+                    Thread.Sleep(500);
+                }
+            });
+
+            t.Start();
+        }
+
+
+
+        private void ResetBtn_Click(object sender, EventArgs e)
+        {
+            this.sortBeingUsed.Reset(DATA_SIZE);
+
+            DataPanel.Invalidate();
+
+            this.SortBtn.Enabled = true;
         }
 
     }

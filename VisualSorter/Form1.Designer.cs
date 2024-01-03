@@ -102,6 +102,7 @@
             SortBtn.TabIndex = 5;
             SortBtn.Text = "Sort";
             SortBtn.UseVisualStyleBackColor = true;
+            SortBtn.Click += SortBtn_Click;
             // 
             // DataPanel
             // 
@@ -111,6 +112,7 @@
             DataPanel.Size = new Size(568, 242);
             DataPanel.TabIndex = 6;
             DataPanel.TabStop = false;
+            DataPanel.Paint += DataPanel_Paint;
             // 
             // MainWindow
             // 
