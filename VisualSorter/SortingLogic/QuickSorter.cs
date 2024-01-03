@@ -102,21 +102,21 @@ namespace VisualSorter.SortingLogic
         /// <returns>a good pivot to use</returns>
         private int ChoosePivot(int start, int end)
         {
-            int first = data[data.Length - 1];
-            int second = data[data.Length - 2];
-            int third = data[data.Length - 3];
+            int first = data[end];
+            int second = data[end - 1];
+            int third = data[end - 2];
 
 
             if(IsBetween(first, second, third))
             {
-                return data.Length - 1;
+                return end;
             }
             if(IsBetween(second, first, third))
             {
-                return data.Length - 2;
+                return end - 1;
             }
 
-            return data.Length - 3;
+            return end - 2;
         }
 
 
