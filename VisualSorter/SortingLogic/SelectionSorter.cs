@@ -12,6 +12,13 @@ namespace VisualSorter.SortingLogic
     /// </summary>
     internal class SelectionSorter : AbstractSorter
     {
+
+        public SelectionSorter() { }
+
+        public SelectionSorter(int dataSize) : base(dataSize) { }
+
+
+
         public override IEnumerable<Tuple<int, int>> Sort()
         {
             throw new NotImplementedException();

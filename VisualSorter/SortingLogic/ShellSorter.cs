@@ -12,6 +12,14 @@ namespace VisualSorter.SortingLogic
     /// </summary>
     internal class ShellSorter : AbstractSorter
     {
+
+        public ShellSorter() { }
+
+
+        public ShellSorter(int dataSize) : base(dataSize) { }
+
+
+
         public override IEnumerable<Tuple<int, int>> Sort()
         {
             throw new NotImplementedException();

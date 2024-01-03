@@ -12,6 +12,12 @@ namespace VisualSorter.SortingLogic
     /// </summary>
     internal class QuickSorter : AbstractSorter
     {
+        public QuickSorter() { }
+
+        public QuickSorter(int dataSize) : base(dataSize) { }
+
+
+
         public override IEnumerable<Tuple<int, int>> Sort()
         {
             throw new NotImplementedException();

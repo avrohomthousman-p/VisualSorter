@@ -11,6 +11,14 @@ namespace VisualSorter.SortingLogic
     /// </summary>
     internal class BubbleSorter : AbstractSorter
     {
+
+        public BubbleSorter() { }
+
+
+        public BubbleSorter(int dataSize) : base(dataSize) { }
+
+
+
         public override IEnumerable<Tuple<int, int>> Sort()
         {
             for (int i = 0; i < data.Length - 1; i++)
