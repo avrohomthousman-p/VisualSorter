@@ -20,13 +20,13 @@ namespace VisualSorter.SortingLogic
 
         public override IEnumerable<Tuple<int, int>> Sort()
         {
-            throw new NotImplementedException();
+            return Partition(0, data.Length - 1);
         }
 
 
 
         /// <summary>
-        /// Does one partiotion of the quicksort.
+        /// Does one partition of the quicksort.
         /// </summary>
         /// <param name="start">the start index of the area being sorted</param>
         /// <param name="end">the end index of the area being sorted</param>
@@ -84,11 +84,19 @@ namespace VisualSorter.SortingLogic
                 {
                     left++;
                 }
-            }           
+            }
 
 
 
-            //TODO: Recursive calls
+            //Recursive calls
+            foreach (var swap in Partition(start, pivotIndex - 1))
+            {
+                yield return swap;
+            }
+            foreach (var swap in Partition(pivotIndex + 1, end))
+            {
+                yield return swap;
+            }
         }
 
 
