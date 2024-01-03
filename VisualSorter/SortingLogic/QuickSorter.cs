@@ -30,21 +30,65 @@ namespace VisualSorter.SortingLogic
         /// </summary>
         /// <param name="start">the start index of the area being sorted</param>
         /// <param name="end">the end index of the area being sorted</param>
-        private void Partition(int start, int end)
+        /// <returns>each swap as its being done</returns>
+        private IEnumerable<Tuple<int, int>> Partition(int start, int end)
         {
-            if(end - start <= 1)
+            if(start >= end) //one or zero elements remain
             {
-                return;
+                yield break;
             }
-            if(end - start == 2)
+            if(start + 1 == end) //exactly 2 elements remain
             {
-                //TODO swap if needed, then return
+                if (data[start] > data[end])
+                {
+                    IStepByStepSorter.Swap(data, start, end);
+                    yield return new Tuple<int, int>(start, end);
+                }
+
+                yield break;
             }
 
+
+
+            //Choose a pivot
             int pivotIndex = ChoosePivot(start, end);
+            int pivotValue = data[pivotIndex];
+
+            //Move the pivot to the end
+            IStepByStepSorter.Swap(data, pivotIndex, end);
+            yield return new Tuple<int, int>(pivotIndex, end);
+            pivotIndex = end;
 
 
-            //TODO: normal sort
+            //Now start the sort
+
+            int left = start;
+            while(left < pivotIndex)
+            {
+                if (data[left] > pivotValue)
+                {
+                    IStepByStepSorter.Swap(data, pivotIndex, pivotIndex - 1);
+                    yield return new Tuple<int, int>(pivotIndex, pivotIndex - 1);
+                    pivotIndex--;
+
+
+                    if(pivotIndex == left)//corner case: when left and pivot are adjacent, only do one swap
+                    {
+                        continue;
+                    }
+
+                    IStepByStepSorter.Swap(data, left, pivotIndex + 1);
+                    yield return new Tuple<int, int>(left, pivotIndex + 1);
+                }
+                else
+                {
+                    left++;
+                }
+            }           
+
+
+
+            //TODO: Recursive calls
         }
 
 
