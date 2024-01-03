@@ -93,7 +93,7 @@ namespace VisualSorter
             if (this.sortBeingUsed.GetType() != newSorter.GetType()) //if we are not using the right algo
             {
                 //switch to the new algorithim
-                this.sortBeingUsed.SetData(newSorter.GetData());
+                newSorter.SetData(this.sortBeingUsed.GetData());
                 this.sortBeingUsed = newSorter;
             }
 
