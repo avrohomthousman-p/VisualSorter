@@ -85,6 +85,7 @@ namespace VisualSorter
         private void SortBtn_Click(object sender, EventArgs e)
         {
             this.SortBtn.Enabled = false;
+            this.ResetBtn.Enabled = false;
 
 
             
@@ -109,6 +110,10 @@ namespace VisualSorter
                     DataPanel.Invalidate();
                     Thread.Sleep(500);
                 }
+
+
+                Invoke(() => this.ResetBtn.Enabled = true);
+                
             });
 
             t.Start();

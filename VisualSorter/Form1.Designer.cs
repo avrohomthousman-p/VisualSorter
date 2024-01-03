@@ -35,6 +35,7 @@
             SelectionSort = new RadioButton();
             SortBtn = new Button();
             DataPanel = new PictureBox();
+            ResetBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)DataPanel).BeginInit();
             SuspendLayout();
             // 
@@ -42,7 +43,7 @@
             // 
             BubbleSort.AutoSize = true;
             BubbleSort.Checked = true;
-            BubbleSort.Location = new Point(636, 70);
+            BubbleSort.Location = new Point(624, 39);
             BubbleSort.Name = "BubbleSort";
             BubbleSort.Size = new Size(86, 19);
             BubbleSort.TabIndex = 0;
@@ -53,7 +54,7 @@
             // QuickSort
             // 
             QuickSort.AutoSize = true;
-            QuickSort.Location = new Point(636, 95);
+            QuickSort.Location = new Point(624, 64);
             QuickSort.Name = "QuickSort";
             QuickSort.Size = new Size(80, 19);
             QuickSort.TabIndex = 1;
@@ -64,7 +65,7 @@
             // ShellSort
             // 
             ShellSort.AutoSize = true;
-            ShellSort.Location = new Point(636, 120);
+            ShellSort.Location = new Point(624, 89);
             ShellSort.Name = "ShellSort";
             ShellSort.Size = new Size(74, 19);
             ShellSort.TabIndex = 2;
@@ -75,7 +76,7 @@
             // InsertionSort
             // 
             InsertionSort.AutoSize = true;
-            InsertionSort.Location = new Point(636, 145);
+            InsertionSort.Location = new Point(624, 114);
             InsertionSort.Name = "InsertionSort";
             InsertionSort.Size = new Size(95, 19);
             InsertionSort.TabIndex = 3;
@@ -86,7 +87,7 @@
             // SelectionSort
             // 
             SelectionSort.AutoSize = true;
-            SelectionSort.Location = new Point(636, 170);
+            SelectionSort.Location = new Point(624, 139);
             SelectionSort.Name = "SelectionSort";
             SelectionSort.Size = new Size(97, 19);
             SelectionSort.TabIndex = 4;
@@ -96,7 +97,7 @@
             // 
             // SortBtn
             // 
-            SortBtn.Location = new Point(636, 211);
+            SortBtn.Location = new Point(624, 178);
             SortBtn.Name = "SortBtn";
             SortBtn.Size = new Size(75, 23);
             SortBtn.TabIndex = 5;
@@ -114,11 +115,22 @@
             DataPanel.TabStop = false;
             DataPanel.Paint += DataPanel_Paint;
             // 
+            // ResetBtn
+            // 
+            ResetBtn.Location = new Point(624, 217);
+            ResetBtn.Name = "ResetBtn";
+            ResetBtn.Size = new Size(75, 23);
+            ResetBtn.TabIndex = 7;
+            ResetBtn.Text = "Reset";
+            ResetBtn.UseVisualStyleBackColor = true;
+            ResetBtn.Click += ResetBtn_Click;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(790, 282);
+            ClientSize = new Size(750, 282);
+            Controls.Add(ResetBtn);
             Controls.Add(DataPanel);
             Controls.Add(SortBtn);
             Controls.Add(SelectionSort);
@@ -126,6 +138,7 @@
             Controls.Add(ShellSort);
             Controls.Add(QuickSort);
             Controls.Add(BubbleSort);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "MainWindow";
             Text = "Sorting Display";
             ((System.ComponentModel.ISupportInitialize)DataPanel).EndInit();
@@ -142,5 +155,6 @@
         private RadioButton SelectionSort;
         private Button SortBtn;
         private PictureBox DataPanel;
+        private Button ResetBtn;
     }
 }
