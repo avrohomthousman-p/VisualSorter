@@ -11,7 +11,7 @@ namespace VisualSorter
         private static readonly int BAR_WIDTH = 20;
         private static readonly int GAP_BETWEEN_BARS = 20;
 
-        private IStepByStepSorter sortBeingUsed = new MockSorter(); //FIXME: should default to bubble sort
+        private IStepByStepSorter sortBeingUsed = new BubbleSorter(DATA_SIZE);
 
 
 
