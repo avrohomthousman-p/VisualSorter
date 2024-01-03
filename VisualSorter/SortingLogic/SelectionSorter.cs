@@ -21,7 +21,22 @@ namespace VisualSorter.SortingLogic
 
         public override IEnumerable<Tuple<int, int>> Sort()
         {
-            throw new NotImplementedException();
+            for(int i = 0; i < data.Length; i++)
+            {
+                int minIndex = i;
+
+                for(int j = i + 1; j < data.Length; j++)
+                {
+                    if (data[j] < data[minIndex])
+                    {
+                        minIndex = j;
+                    }
+                }
+
+
+                IStepByStepSorter.Swap(data, i, minIndex);
+                yield return new Tuple<int, int>(i, minIndex);
+            }
         }
     }
 }
