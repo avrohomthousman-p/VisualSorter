@@ -34,6 +34,7 @@ namespace VisualSorter.SortingLogic
                     }
                     else
                     {
+                        yield return null;
                         break;
                     }
                 }

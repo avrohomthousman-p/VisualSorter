@@ -105,9 +105,12 @@ namespace VisualSorter
             Thread t = new Thread(() => {
                 var swaps = this.sortBeingUsed.Sort();
 
-                foreach(Tuple<int, int> unused in swaps)
+                foreach(Tuple<int, int> swapData in swaps)
                 {
-                    DataPanel.Invalidate();
+                    if(swapData != null)
+                    {
+                        DataPanel.Invalidate();
+                    }
                     Thread.Sleep(500);
                 }
 

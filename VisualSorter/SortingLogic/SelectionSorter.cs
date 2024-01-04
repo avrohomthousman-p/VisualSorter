@@ -36,6 +36,7 @@ namespace VisualSorter.SortingLogic
 
                 IStepByStepSorter.Swap(data, i, minIndex);
                 yield return new Tuple<int, int>(i, minIndex);
+                yield return null;
             }
         }
     }

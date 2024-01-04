@@ -40,6 +40,10 @@ namespace VisualSorter.SortingLogic
                 {
                     yield break;
                 }
+                else
+                {
+                    yield return null;
+                }
             }
         }
     }

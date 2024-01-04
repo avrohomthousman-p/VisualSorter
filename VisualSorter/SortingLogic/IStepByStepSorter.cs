@@ -66,7 +66,10 @@ namespace VisualSorter.SortingLogic
         /// <summary>
         /// Executes the sort
         /// </summary>
-        /// <returns>the two indexes that are swapped at each step of the sort</returns>
+        /// <returns>
+        /// the two indexes that are swapped at each step of the sort, or a null if the animation
+        /// should give an extra pause.
+        /// </returns>
         public IEnumerable<Tuple<int, int>> Sort();
 
 

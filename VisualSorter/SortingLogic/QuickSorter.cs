@@ -59,6 +59,9 @@ namespace VisualSorter.SortingLogic
             yield return new Tuple<int, int>(pivotIndex, end);
             pivotIndex = end;
 
+            yield return null; //let the user see the pivot has been moved
+
+
 
             //Now start the sort
 
@@ -89,10 +92,12 @@ namespace VisualSorter.SortingLogic
 
 
             //Recursive calls
+            yield return null;
             foreach (var swap in Partition(start, pivotIndex - 1))
             {
                 yield return swap;
             }
+            yield return null;
             foreach (var swap in Partition(pivotIndex + 1, end))
             {
                 yield return swap;
