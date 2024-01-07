@@ -22,7 +22,26 @@ namespace VisualSorter.SortingLogic
 
         public override IEnumerable<Tuple<int, int>> Sort()
         {
-            throw new NotImplementedException();
+
+            int gap = data.Length / 2;
+
+            while (gap > 0)
+            {
+                for (int i = gap; i < data.Length; i++)
+                {
+                    int temp = data[i];
+                    int j = i;
+
+                    while (j >= gap && data[j - gap] > temp)
+                    {
+                        IStepByStepSorter.Swap(data, j, j - gap);
+                        yield return new Tuple<int, int>(j, j - gap);
+                        j -= gap;
+                    }
+                }
+
+                gap /= 2;
+            }
         }
     }
 }
